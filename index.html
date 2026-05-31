@@ -1,10 +1,91 @@
-<!doctype html>
-<html>
-    <head>
-        <title>PopChoice</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <script type="module" src="index.js"></script>
-    </body>
-</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PopChoice - AI Movie Matchmaker</title>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "openai": "https://esm.sh/openai",
+        "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="phone-wrapper">
+    <div class="phone-screen">
+
+      <section id="page1" class="app-page">
+        <div class="logo-area">
+          <span class="logo-icon">🍿</span>
+          <h1 class="brand-title">PopChoice</h1>
+        </div>
+        
+        <div class="form-group">
+          <label for="input-Total-People">How many people?</label>
+          <input type="number" id="input-Total-People" min="1" placeholder="e.g., 3">
+        </div>
+
+        <div class="form-group">
+          <label for="input-Max-Runtime">How much time do you have?</label>
+          <input type="text" id="input-Max-Runtime" placeholder="e.g., 2 hours">
+        </div>
+
+        <button id="btn-Submit-Page1" class="ui-primary-btn">Start</button>
+      </section>
+
+      <section id="page2" class="app-page" style="display: none;">
+        <h2 id="person-Counter" class="page-header">Person 1 of 1</h2>
+
+        <div class="form-group">
+          <label for="ans-Fav">What's your favorite movie and why?</label>
+          <textarea id="ans-Fav" rows="3" placeholder="Because it taught me to never give up..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Are you in the mood for something new or a classic?</label>
+          <div class="button-toggle-row">
+            <button type="button" class="vibe-btn tag-btn" data-vibe="New">New</button>
+            <button type="button" class="vibe-btn tag-btn" data-vibe="Classic">Classic</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>What are you in the mood for?</label>
+          <div class="button-grid-row">
+            <button type="button" class="mood-btn tag-btn" data-mood="Fun">Fun</button>
+            <button type="button" class="mood-btn tag-btn" data-mood="Serious">Serious</button>
+            <button type="button" class="mood-btn tag-btn" data-mood="Inspiring">Inspiring</button>
+            <button type="button" class="mood-btn tag-btn" data-mood="Scary">Scary</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ans-Person">Which famous film person would you love to be stranded with and why?</label>
+          <textarea id="ans-Person" rows="2" placeholder="Tom Hanks because he is funny..."></textarea>
+        </div>
+
+        <button id="btn-Next-Person" class="ui-primary-btn">Next Person</button>
+      </section>
+
+      <section id="page3" class="app-page" style="display: none;">
+        <div id="loading-state" class="loader-layout">
+          <div class="spinner"></div>
+          <p>🧠 Brainstorming the perfect compromise...</p>
+        </div>
+        
+        <div id="results-container" class="results-wrapper" style="display: none;"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module" src="index.js" defer></script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 {
-  "name": "Scrim-s05qo7r",
-  "description": "https://scrimba.com/fullstack-path-c0fullstack/~0453/s0bdsnonbp/head",
+  "name": "movies-ai-picker",
+  "description": "An AI-powered movie recommendation app using RAG to find overlapping group preferences.",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -9,8 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "2.38.2",
-    "openai": "4.12.3",
+    "openai": "^6.39.0",
     "vite": "latest"
-  },
-  "devDependencies": {}
+  }
 }
