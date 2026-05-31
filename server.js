@@ -36,7 +36,7 @@ app.post('/api/recommend', async (req, res) => {
 
     // 🔥 Native 2026 Responses API Interface using GPT-5 mini
     const aiResponse = await openai.responses.create({
-      model: 'o3-mini', // Lowest latency frontier reasoning tier
+      model: 'gpt-5.4-mini', // Lowest latency frontier reasoning tier
       instructions: `You are an expert film matchmaker. Your job is to analyze conflicting movie tastes from a group of people and write a 2-sentence target summary describing an ideal movie compromise that bridges their preferences. Incorporate their tone, pacing, and mood requests. Do not mention specific user names.`,
       input: `Group Time Limit constraint: ${maxRuntime}\n\nGroup Preferences:\n${summaryOfAnswers}`
     });
